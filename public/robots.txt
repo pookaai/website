@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pookaai.com/sitemap-index.xml
