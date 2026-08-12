@@ -1,0 +1,115 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+// Ops: replace with a real Google Forms embed URL, e.g.
+// https://docs.google.com/forms/d/e/XXXX/viewform?embedded=true
+const GOOGLE_FORM_EMBED_URL = "ABOUT:BLANK_PLACEHOLDER";
+
+const isPlaceholder =
+  !GOOGLE_FORM_EMBED_URL ||
+  GOOGLE_FORM_EMBED_URL === "ABOUT:BLANK_PLACEHOLDER" ||
+  GOOGLE_FORM_EMBED_URL.startsWith("ABOUT:");
+
+const highlights = [
+  {
+    title: "Business details",
+    body: "What you do, who you serve, and the tools you already use day to day.",
+  },
+  {
+    title: "Needs & wants",
+    body: "Where time leaks, where leads stall, and what “better” would look like.",
+  },
+  {
+    title: "Preferred follow-up times",
+    body: "Share windows that work for you — Leigh books the calendar manually after review.",
+  },
+];
+---
+
+<BaseLayout
+  title="Tell us about your business — PookaAI"
+  description="Share a few details about your business and what you want AI help with. Leigh will follow up and book a time manually."
+>
+  <Header />
+  <main id="main">
+    <section class="relative overflow-hidden pb-8 pt-14 md:pb-10 md:pt-20">
+      <div class="pointer-events-none absolute inset-0">
+        <div class="absolute -left-20 top-8 h-64 w-64 rounded-full bg-ember-200/45 blur-3xl"></div>
+        <div class="absolute right-0 top-16 h-72 w-72 rounded-full bg-ink-200/55 blur-3xl"></div>
+      </div>
+
+      <div class="container-page relative">
+        <div class="max-w-2xl">
+          <p class="section-label">Inbound request</p>
+          <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight text-ink-950 sm:text-5xl">
+            Tell us about your business
+          </h1>
+          <p class="mt-5 text-lg leading-relaxed text-ink-700">
+            A short form is the fastest way to request an AI audit. Share enough
+            context that we can tell whether an audit makes sense — then Leigh
+            will follow up and book time on the calendar manually.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-4 md:grid-cols-3">
+          {highlights.map((item) => (
+            <article class="rounded-4xl border border-ink-900/8 bg-white p-5 shadow-card">
+              <h2 class="font-display text-lg font-semibold text-ink-900">{item.title}</h2>
+              <p class="mt-2 text-sm leading-relaxed text-ink-600">{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-20 md:pb-28">
+      <div class="container-page">
+        <div class="overflow-hidden rounded-[2rem] border border-ink-900/8 bg-white shadow-soft">
+          {isPlaceholder ? (
+            <div class="space-y-6 px-6 py-14 text-center sm:px-12">
+              <p class="section-label">Form coming online</p>
+              <h2 class="font-display text-2xl font-semibold tracking-tight text-ink-950 sm:text-3xl">
+                The intake form isn’t live yet
+              </h2>
+              <p class="mx-auto max-w-xl text-base leading-relaxed text-ink-700">
+                We’re wiring up the Google Form now. In the meantime, email us
+                with your business details, what you need help with, and a few
+                preferred times for a follow-up.
+              </p>
+              <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <a
+                  class="btn-primary"
+                  href="mailto:hello@pookaai.com?subject=AI%20audit%20request&body=Hi%20PookaAI%2C%0A%0ABusiness%3A%0AWhat%20we%20do%3A%0ABiggest%20need%20or%20want%3A%0APreferred%20follow-up%20times%3A%0A"
+                >
+                  Email hello@pookaai.com
+                </a>
+                <a class="btn-secondary" href="/">Back to home</a>
+              </div>
+            </div>
+          ) : (
+            <div class="bg-mist/40 px-2 py-2 sm:px-4 sm:py-4">
+              <iframe
+                title="Tell us about your business"
+                src={GOOGLE_FORM_EMBED_URL}
+                class="w-full border-0"
+                style="min-height: 1800px;"
+                loading="lazy"
+              >
+                Loading…
+              </iframe>
+              <p class="px-4 pb-4 text-center text-sm text-ink-500">
+                Prefer email?
+                <a class="font-medium text-ink-800 underline decoration-ember-300 underline-offset-2 hover:text-ink-950" href="mailto:hello@pookaai.com">
+                  hello@pookaai.com
+                </a>
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
