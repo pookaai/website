@@ -1,0 +1,36 @@
+---
+const links = [
+  { href: "#services", label: "Services" },
+  { href: "#who", label: "Who it's for" },
+  { href: "#how", label: "How it works" },
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-ink-900/5 bg-cream/85 backdrop-blur-md">
+  <div class="container-page flex items-center justify-between gap-4 py-4">
+    <a href="/" class="group flex items-center gap-3" aria-label="PookaAI home">
+      <span class="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-ink-900 text-cream shadow-card">
+        <svg viewBox="0 0 32 32" class="h-6 w-6" aria-hidden="true">
+          <path d="M8 20c2.2-6.5 6.5-9.8 12-11 1.1 4.4-.5 9.8-4.4 13.1C12.3 24.3 9.1 23.8 8 20z" fill="#fb923c"></path>
+          <circle cx="21" cy="11" r="2.6" fill="#fbf7f0"></circle>
+        </svg>
+      </span>
+      <span class="font-display text-xl font-semibold tracking-tight text-ink-900">PookaAI</span>
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Primary">
+      {links.map((link) => (
+        <a href={link.href} class="text-sm font-medium text-ink-700 transition hover:text-ink-950">
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      class="btn-primary text-sm"
+      href="mailto:hello@pookaai.com?subject=AI%20audit%20request"
+    >
+      Request an AI audit
+    </a>
+  </div>
+</header>
