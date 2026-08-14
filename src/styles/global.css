@@ -8,28 +8,24 @@
   }
 
   body {
-    @apply bg-cream text-ink-900 font-sans antialiased;
+    @apply bg-canvas text-offwhite font-sans antialiased;
   }
 
   :focus-visible {
-    @apply outline-none ring-2 ring-ember-400 ring-offset-2 ring-offset-cream;
+    @apply outline-none ring-1 ring-ember ring-offset-2 ring-offset-canvas;
   }
 }
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-12;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-ember-500 px-6 py-3 text-sm font-semibold text-ink-950 shadow-card transition hover:bg-ember-400 focus-visible:ring-ember-500;
+    @apply inline-flex items-center justify-center border border-ember bg-canvas px-8 py-3 text-sm font-medium text-offwhite transition hover:bg-ember hover:text-canvas focus-visible:ring-ember;
   }
 
-  .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-ink-200 bg-white/70 px-6 py-3 text-sm font-semibold text-ink-800 transition hover:border-ink-300 hover:bg-white;
-  }
-
-  .section-label {
-    @apply text-xs font-semibold uppercase tracking-[0.18em] text-ember-700;
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-offwhite-muted transition hover:text-offwhite;
   }
 }

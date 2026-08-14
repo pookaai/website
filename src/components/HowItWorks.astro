@@ -9,29 +9,29 @@ const steps = [
     body: "You get a short ranked plan: quick wins first, bigger builds second, and a clear no list for later.",
   },
   {
-    title: "Build & hand off",
+    title: "Build and hand off",
     body: "We implement the chosen piece, test it with your team, document it in plain English, and leave you in control.",
   },
 ];
 ---
 
-<section id="how" class="py-20 md:py-24">
+<section id="how" class="py-32 md:py-40">
   <div class="container-page">
-    <div class="max-w-2xl">
-      <p class="section-label">How it works</p>
-      <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl">
-        Three steps. No fog machine.
-      </h2>
-    </div>
+    <div class="mx-auto max-w-4xl space-y-12">
+      <div>
+        <h2 class="font-display text-4xl font-semibold tracking-tight text-offwhite sm:text-5xl">
+          How it works
+        </h2>
+      </div>
 
-    <div class="mt-12 grid gap-6 md:grid-cols-3">
-      {steps.map((step, index) => (
-        <article class="relative rounded-4xl border border-ink-900/8 bg-white p-6 shadow-card">
-          <p class="font-display text-5xl font-semibold text-ember-200">{String(index + 1).padStart(2, "0")}</p>
-          <h3 class="mt-4 font-display text-2xl font-semibold text-ink-900">{step.title}</h3>
-          <p class="mt-3 text-sm leading-relaxed text-ink-600">{step.body}</p>
-        </article>
-      ))}
+      <div class="space-y-8">
+        {steps.map((step) => (
+          <div class="border-t border-offwhite/5 pt-8">
+            <h3 class="font-display text-2xl font-semibold text-offwhite">{step.title}</h3>
+            <p class="mt-3 text-base leading-relaxed text-offwhite-muted">{step.body}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>

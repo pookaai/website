@@ -1,37 +1,29 @@
 ---
 const links = [
   { href: "/#services", label: "Services" },
-  { href: "/#who", label: "Who it's for" },
-  { href: "/#how", label: "How it works" },
+  { href: "/start", label: "Start" },
 ];
 ---
 
-<header class="sticky top-0 z-40 border-b border-ink-900/5 bg-cream/85 backdrop-blur-md">
+<header class="fixed top-0 z-40 w-full border-b border-offwhite/5 bg-canvas/80 backdrop-blur-sm">
   <div class="container-page flex items-center justify-between gap-4 py-4">
-    <a href="/" class="group flex items-center gap-3" aria-label="PookaAI home">
-      <span class="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl bg-ink-900 text-cream shadow-card">
-        <img
-          src="/logo-icon-white.svg"
-          alt=""
-          width="28"
-          height="28"
-          class="h-7 w-7"
-          decoding="async"
-        />
-      </span>
-      <span class="font-display text-xl font-semibold tracking-tight text-ink-900">PookaAI</span>
+    <a href="/" class="flex items-center gap-3" aria-label="PookaAI home">
+      <img
+        src="/logo-lockup-white.svg"
+        alt="PookaAI"
+        width="120"
+        height="32"
+        class="h-8 w-auto"
+        decoding="async"
+      />
     </a>
 
-    <nav class="hidden items-center gap-8 md:flex" aria-label="Primary">
+    <nav class="flex items-center gap-8" aria-label="Primary">
       {links.map((link) => (
-        <a href={link.href} class="text-sm font-medium text-ink-700 transition hover:text-ink-950">
+        <a href={link.href} class="text-sm font-medium text-offwhite-muted transition hover:text-offwhite">
           {link.label}
         </a>
       ))}
     </nav>
-
-    <a class="btn-primary text-sm" href="/start">
-      Request an AI audit
-    </a>
   </div>
 </header>
