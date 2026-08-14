@@ -8,24 +8,24 @@
   }
 
   body {
-    @apply bg-canvas text-offwhite font-sans antialiased;
+    @apply bg-canvas text-ink font-sans antialiased;
   }
 
   :focus-visible {
-    @apply outline-none ring-1 ring-ember ring-offset-2 ring-offset-canvas;
+    @apply outline-none ring-2 ring-ink ring-offset-2 ring-offset-canvas;
   }
 }
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-12;
+    @apply mx-auto w-full max-w-5xl px-6 sm:px-10 lg:px-16;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center border border-ember bg-canvas px-8 py-3 text-sm font-medium text-offwhite transition hover:bg-ember hover:text-canvas focus-visible:ring-ember;
+    @apply inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-medium text-canvas transition hover:bg-ink/90 focus-visible:ring-ink;
   }
 
-  .btn-ghost {
-    @apply inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-offwhite-muted transition hover:text-offwhite;
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-ink/20 bg-transparent px-6 py-3 text-sm font-medium text-ink transition hover:border-ink/40 focus-visible:ring-ink;
   }
 }

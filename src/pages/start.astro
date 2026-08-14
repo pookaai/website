@@ -36,23 +36,23 @@ const highlights = [
   <main id="main" class="pt-20">
     <section class="py-20 md:py-28">
       <div class="container-page">
-        <div class="mx-auto max-w-4xl space-y-10">
-          <div class="text-center">
-            <h1 class="font-display text-4xl font-semibold tracking-tight text-offwhite sm:text-5xl">
+        <div class="mx-auto max-w-3xl space-y-10 text-center">
+          <div>
+            <h1 class="text-4xl font-medium tracking-tight text-ink sm:text-5xl">
               Tell us about your business
             </h1>
-            <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-offwhite-muted">
+            <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ink-muted">
               A short form is the fastest way to get started. Share enough
               context that we can tell whether we can help. Then Leigh
               will follow up and book time on the calendar manually.
             </p>
           </div>
 
-          <div class="grid gap-6 md:grid-cols-3">
+          <div class="grid gap-6 text-left md:grid-cols-3">
             {highlights.map((item) => (
               <div class="space-y-2">
-                <h2 class="font-display text-lg font-semibold text-offwhite">{item.title}</h2>
-                <p class="text-sm leading-relaxed text-offwhite-muted">{item.body}</p>
+                <h2 class="text-base font-medium text-ink">{item.title}</h2>
+                <p class="text-sm leading-relaxed text-ink-muted">{item.body}</p>
               </div>
             ))}
           </div>
@@ -62,25 +62,25 @@ const highlights = [
 
     <section class="pb-20 md:pb-28">
       <div class="container-page">
-        <div class="mx-auto max-w-4xl overflow-hidden border border-offwhite/5 bg-canvas-darker">
+        <div class="mx-auto max-w-3xl overflow-hidden border border-ink/10">
           {isPlaceholder ? (
             <div class="space-y-6 px-6 py-14 text-center sm:px-12">
-              <h2 class="font-display text-2xl font-semibold tracking-tight text-offwhite sm:text-3xl">
+              <h2 class="text-2xl font-medium tracking-tight text-ink sm:text-3xl">
                 The intake form is not live yet
               </h2>
-              <p class="mx-auto max-w-xl text-base leading-relaxed text-offwhite-muted">
+              <p class="mx-auto max-w-xl text-base leading-relaxed text-ink-muted">
                 We are wiring up the Google Form now. In the meantime, email us
                 with your business details, what you need help with, and a few
                 preferred times for a follow-up.
               </p>
-              <div class="flex flex-col items-center justify-center gap-6 sm:flex-row">
+              <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a
                   class="btn-primary"
                   href="mailto:hello@pookaai.com?subject=AI%20automation%20request&body=Hi%20PookaAI%2C%0A%0ABusiness%3A%0AWhat%20we%20do%3A%0ABiggest%20need%20or%20want%3A%0APreferred%20follow-up%20times%3A%0A"
                 >
                   Email hello@pookaai.com
                 </a>
-                <a class="btn-ghost" href="/">Back to home</a>
+                <a class="btn-secondary" href="/">Back to home</a>
               </div>
             </div>
           ) : (
@@ -94,9 +94,9 @@ const highlights = [
               >
                 Loading…
               </iframe>
-              <p class="px-4 pb-4 text-center text-sm text-offwhite-muted">
+              <p class="px-4 pb-4 text-center text-sm text-ink-muted">
                 Prefer email?
-                <a class="font-medium text-offwhite underline underline-offset-2 hover:text-ember" href="mailto:hello@pookaai.com">
+                <a class="font-medium text-ink underline underline-offset-2 hover:text-ember" href="mailto:hello@pookaai.com">
                   hello@pookaai.com
                 </a>
               </p>

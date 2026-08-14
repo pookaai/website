@@ -1,15 +1,15 @@
 ---
 const links = [
   { href: "/#services", label: "Services" },
-  { href: "/start", label: "Start" },
+  { href: "/#how", label: "How it works" },
 ];
 ---
 
-<header class="fixed top-0 z-40 w-full border-b border-offwhite/5 bg-canvas/80 backdrop-blur-sm">
+<header class="fixed top-0 z-40 w-full border-b border-ink/10 bg-canvas/80 backdrop-blur-sm">
   <div class="container-page flex items-center justify-between gap-4 py-4">
     <a href="/" class="flex items-center gap-3" aria-label="PookaAI home">
       <img
-        src="/logo-lockup-white.svg"
+        src="/logo-lockup.svg"
         alt="PookaAI"
         width="120"
         height="32"
@@ -18,12 +18,17 @@ const links = [
       />
     </a>
 
-    <nav class="flex items-center gap-8" aria-label="Primary">
-      {links.map((link) => (
-        <a href={link.href} class="text-sm font-medium text-offwhite-muted transition hover:text-offwhite">
-          {link.label}
-        </a>
-      ))}
-    </nav>
+    <div class="flex items-center gap-6">
+      <nav class="hidden items-center gap-6 sm:flex" aria-label="Primary">
+        {links.map((link) => (
+          <a href={link.href} class="text-sm font-medium text-ink-muted transition hover:text-ink">
+            {link.label}
+          </a>
+        ))}
+      </nav>
+      <a class="btn-primary" href="/start">
+        Start
+      </a>
+    </div>
   </div>
 </header>

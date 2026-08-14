@@ -5,29 +5,22 @@ export default {
     extend: {
       colors: {
         canvas: {
-          DEFAULT: "#0a0a0a",
-          darker: "#050505",
+          DEFAULT: "#FFFFFF",
         },
-        offwhite: {
-          DEFAULT: "#e8e8e8",
-          muted: "#a0a0a0",
-          dim: "#6a6a6a",
+        ink: {
+          DEFAULT: "#0a0a0a",
+          muted: "#6b7280",
         },
         ember: {
           DEFAULT: "#ea6a12",
-          dim: "#c2410c",
         },
       },
       fontFamily: {
-        display: ["\"Fraunces\"", "Georgia", "serif"],
         sans: ["\"DM Sans\"", "system-ui", "sans-serif"],
       },
       fontSize: {
-        "hero": ["5rem", { lineHeight: "1", letterSpacing: "-0.02em" }],
-        "hero-lg": ["7rem", { lineHeight: "0.95", letterSpacing: "-0.03em" }],
-      },
-      borderRadius: {
-        "4xl": "2rem",
+        hero: ["3rem", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "500" }],
+        "hero-lg": ["4.5rem", { lineHeight: "1.1", letterSpacing: "-0.025em", fontWeight: "500" }],
       },
     },
   },
