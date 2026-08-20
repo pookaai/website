@@ -23,10 +23,10 @@ const ogImage = new URL("/og-image.png", Astro.site);
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/favicon.ico?v=4" sizes="48x48" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=4" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=4" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4" />
+    <link rel="icon" href="/favicon.ico?v=5" sizes="16x16 32x32 48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=5" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="PookaAI" />
     <meta property="og:title" content={title} />
@@ -44,6 +44,46 @@ const ogImage = new URL("/og-image.png", Astro.site);
       rel="stylesheet"
     />
     <title>{title}</title>
+    <script>
+      (function() {
+        function pinFavicon() {
+          const head = document.head || document.getElementsByTagName('head')[0];
+          const existingLinks = head.querySelectorAll('link[rel*="icon"]');
+          existingLinks.forEach(link => {
+            const newLink = link.cloneNode();
+            link.parentNode.replaceChild(newLink, link);
+          });
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', pinFavicon);
+        } else {
+          pinFavicon();
+        }
+        
+        window.addEventListener('load', pinFavicon);
+        window.addEventListener('pageshow', pinFavicon);
+        
+        document.addEventListener('DOMContentLoaded', function() {
+          const iframes = document.querySelectorAll('iframe');
+          iframes.forEach(function(iframe) {
+            iframe.addEventListener('load', pinFavicon);
+          });
+          
+          const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              mutation.addedNodes.forEach(function(node) {
+                if (node.tagName === 'IFRAME') {
+                  node.addEventListener('load', pinFavicon);
+                }
+              });
+            });
+          });
+          
+          observer.observe(document.body, { childList: true, subtree: true });
+        });
+      })();
+    </script>
   </head>
   <body class="min-h-screen">
     <a
