@@ -3,15 +3,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-// Ops: replace with a real Google Forms embed URL, e.g.
-// https://docs.google.com/forms/d/e/XXXX/viewform?embedded=true
-const GOOGLE_FORM_EMBED_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdcORxid6mfqaD9w6dw4h9ErcZZYWDEtCLT9Z8U_DU9yP4JJw/viewform?embedded=true";
-
-const isPlaceholder =
-  !GOOGLE_FORM_EMBED_URL ||
-  GOOGLE_FORM_EMBED_URL === "ABOUT:BLANK_PLACEHOLDER" ||
-  GOOGLE_FORM_EMBED_URL.startsWith("ABOUT:");
-
 const highlights = [
   {
     title: "Business details",
@@ -62,49 +53,265 @@ const highlights = [
 
     <section class="pb-20 md:pb-28">
       <div class="container-page">
-        <div class="mx-auto max-w-3xl overflow-hidden border border-ink/10">
-          {isPlaceholder ? (
-            <div class="space-y-6 px-6 py-14 text-center sm:px-12">
-              <h2 class="text-2xl font-medium tracking-tight text-ink sm:text-3xl">
-                The intake form is not live yet
-              </h2>
-              <p class="mx-auto max-w-xl text-base leading-relaxed text-ink-muted">
-                We are wiring up the Google Form now. In the meantime, email us
-                with your business details, what you need help with, and a few
-                preferred times for a follow-up.
-              </p>
-              <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <a
-                  class="btn-primary"
-                  href="mailto:hello@pookaai.com?subject=AI%20automation%20request&body=Hi%20PookaAI%2C%0A%0ABusiness%3A%0AWhat%20we%20do%3A%0ABiggest%20need%20or%20want%3A%0APreferred%20follow-up%20times%3A%0A"
+        <div class="mx-auto max-w-3xl">
+          <form id="intake-form" class="space-y-8 border border-ink/10 p-6 sm:p-10">
+            <div class="space-y-6">
+              <div>
+                <label for="name" class="block text-sm font-medium text-ink">
+                  Your name <span class="text-ember">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="entry.209130737"
+                  required
+                  class="mt-2 w-full border border-ink/20 bg-canvas px-4 py-2 text-ink placeholder-ink-muted focus:border-ink focus:outline-none"
+                />
+              </div>
+
+              <div class="grid gap-6 sm:grid-cols-2">
+                <div>
+                  <label for="email" class="block text-sm font-medium text-ink">
+                    Email <span class="text-ember">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="entry.1448999132"
+                    required
+                    class="mt-2 w-full border border-ink/20 bg-canvas px-4 py-2 text-ink placeholder-ink-muted focus:border-ink focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label for="phone" class="block text-sm font-medium text-ink">
+                    Phone
+                  </label>
+                  <input
+                    type="text"
+                    id="phone"
+                    name="entry.1656494749"
+                    class="mt-2 w-full border border-ink/20 bg-canvas px-4 py-2 text-ink placeholder-ink-muted focus:border-ink focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <div class="grid gap-6 sm:grid-cols-2">
+                <div>
+                  <label for="business-name" class="block text-sm font-medium text-ink">
+                    Business name <span class="text-ember">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="business-name"
+                    name="entry.1185639137"
+                    required
+                    class="mt-2 w-full border border-ink/20 bg-canvas px-4 py-2 text-ink placeholder-ink-muted focus:border-ink focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label for="website" class="block text-sm font-medium text-ink">
+                    Website
+                  </label>
+                  <input
+                    type="text"
+                    id="website"
+                    name="entry.446718357"
+                    class="mt-2 w-full border border-ink/20 bg-canvas px-4 py-2 text-ink placeholder-ink-muted focus:border-ink focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="city" class="block text-sm font-medium text-ink">
+                  City / service area <span class="text-ember">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="city"
+                  name="entry.2025350572"
+                  required
+                  class="mt-2 w-full border border-ink/20 bg-canvas px-4 py-2 text-ink placeholder-ink-muted focus:border-ink focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label for="business-type" class="block text-sm font-medium text-ink">
+                  Business type <span class="text-ember">*</span>
+                </label>
+                <select
+                  id="business-type"
+                  name="entry.1299359423"
+                  required
+                  class="mt-2 w-full border border-ink/20 bg-canvas px-4 py-2 text-ink focus:border-ink focus:outline-none"
                 >
-                  Email hello@pookaai.com
-                </a>
-                <a class="btn-secondary" href="/">Back to home</a>
+                  <option value="">Select one</option>
+                  <option value="Home services / Trades">Home services / Trades</option>
+                  <option value="Healthcare / local care">Healthcare / local care</option>
+                  <option value="Professional services">Professional services</option>
+                  <option value="Agency">Agency</option>
+                  <option value="Retail / shop">Retail / shop</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="what-business-does" class="block text-sm font-medium text-ink">
+                  What does your business do? <span class="text-ember">*</span>
+                </label>
+                <textarea
+                  id="what-business-does"
+                  name="entry.608382910"
+                  required
+                  rows="3"
+                  class="mt-2 w-full border border-ink/20 bg-canvas px-4 py-2 text-ink placeholder-ink-muted focus:border-ink focus:outline-none"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="biggest-friction" class="block text-sm font-medium text-ink">
+                  What's the biggest friction right now? <span class="text-ember">*</span>
+                </label>
+                <textarea
+                  id="biggest-friction"
+                  name="entry.1505251189"
+                  required
+                  rows="3"
+                  class="mt-2 w-full border border-ink/20 bg-canvas px-4 py-2 text-ink placeholder-ink-muted focus:border-ink focus:outline-none"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="ai-help" class="block text-sm font-medium text-ink">
+                  What are you hoping AI or automation could help with? <span class="text-ember">*</span>
+                </label>
+                <textarea
+                  id="ai-help"
+                  name="entry.1866187892"
+                  required
+                  rows="3"
+                  class="mt-2 w-full border border-ink/20 bg-canvas px-4 py-2 text-ink placeholder-ink-muted focus:border-ink focus:outline-none"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="tools" class="block text-sm font-medium text-ink">
+                  Tools you use today
+                </label>
+                <textarea
+                  id="tools"
+                  name="entry.2013837544"
+                  rows="3"
+                  class="mt-2 w-full border border-ink/20 bg-canvas px-4 py-2 text-ink placeholder-ink-muted focus:border-ink focus:outline-none"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="preferred-times" class="block text-sm font-medium text-ink">
+                  Preferred times for a follow-up chat <span class="text-ember">*</span>
+                </label>
+                <p class="mt-1 text-sm text-ink-muted">
+                  e.g. Tue/Thu mornings CT, or specific windows next week
+                </p>
+                <textarea
+                  id="preferred-times"
+                  name="entry.83722286"
+                  required
+                  rows="3"
+                  class="mt-2 w-full border border-ink/20 bg-canvas px-4 py-2 text-ink placeholder-ink-muted focus:border-ink focus:outline-none"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="anything-else" class="block text-sm font-medium text-ink">
+                  Anything else we should know?
+                </label>
+                <textarea
+                  id="anything-else"
+                  name="entry.1834758167"
+                  rows="3"
+                  class="mt-2 w-full border border-ink/20 bg-canvas px-4 py-2 text-ink placeholder-ink-muted focus:border-ink focus:outline-none"
+                ></textarea>
               </div>
             </div>
-          ) : (
-            <div class="px-2 py-2 sm:px-4 sm:py-4">
-              <iframe
-                title="Tell us about your business"
-                src={GOOGLE_FORM_EMBED_URL}
-                class="w-full border-0"
-                style="min-height: 1800px;"
-                loading="lazy"
+
+            <div class="space-y-4">
+              <button
+                type="submit"
+                class="btn-primary w-full"
+                id="submit-button"
               >
-                Loading…
-              </iframe>
-              <p class="px-4 pb-4 text-center text-sm text-ink-muted">
-                Prefer email?
-                <a class="font-medium text-ink underline underline-offset-2 hover:text-ember" href="mailto:hello@pookaai.com">
-                  hello@pookaai.com
-                </a>
-              </p>
+                Submit
+              </button>
+              <p id="form-message" class="text-center text-sm" style="display: none;"></p>
             </div>
-          )}
+          </form>
+
+          <div id="thank-you" class="space-y-6 border border-ink/10 px-6 py-14 text-center sm:px-12" style="display: none;">
+            <h2 class="text-2xl font-medium tracking-tight text-ink sm:text-3xl">
+              Thanks for reaching out
+            </h2>
+            <p class="mx-auto max-w-xl text-base leading-relaxed text-ink-muted">
+              Leigh will review your submission and follow up by email to book a time that works for you.
+            </p>
+            <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <a class="btn-primary" href="/">Back to home</a>
+            </div>
+          </div>
+
+          <p class="mt-6 text-center text-sm text-ink-muted">
+            Prefer email?
+            <a class="font-medium text-ink underline underline-offset-2 hover:text-ember" href="mailto:hello@pookaai.com">
+              hello@pookaai.com
+            </a>
+          </p>
         </div>
       </div>
     </section>
   </main>
   <Footer />
+
+  <script>
+    document.getElementById('intake-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const form = e.target as HTMLFormElement;
+      const submitButton = document.getElementById('submit-button') as HTMLButtonElement;
+      const formMessage = document.getElementById('form-message') as HTMLElement;
+      const thankYou = document.getElementById('thank-you') as HTMLElement;
+      
+      submitButton.disabled = true;
+      submitButton.textContent = 'Submitting...';
+      formMessage.style.display = 'none';
+      
+      const formData = new FormData(form);
+      const params = new URLSearchParams();
+      
+      formData.forEach((value, key) => {
+        params.append(key, value.toString());
+      });
+      params.append('fvv', '1');
+      
+      try {
+        await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdcORxid6mfqaD9w6dw4h9ErcZZYWDEtCLT9Z8U_DU9yP4JJw/formResponse', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: params.toString(),
+        });
+        
+        form.style.display = 'none';
+        thankYou.style.display = 'block';
+      } catch (error) {
+        formMessage.textContent = 'Something went wrong. Please try again or email hello@pookaai.com';
+        formMessage.className = 'text-center text-sm text-ember';
+        formMessage.style.display = 'block';
+        submitButton.disabled = false;
+        submitButton.textContent = 'Submit';
+      }
+    });
+  </script>
 </BaseLayout>
